@@ -77,6 +77,8 @@ public class QuickStart9eHotlink extends JFrame {
 
 	Toc toc = new Toc();
 	String s1 = "C:\\ESRI\\MOJ20\\Samples\\Data\\USA\\States.shp";
+	String s2 = "C:\\ESRI\\MOJ20\\Samples\\Data\\USA\\States.shp";
+	
 	String datapathname = "";
 	String legendname = "";
 	ZoomPanToolBar zptb = new ZoomPanToolBar();
@@ -576,9 +578,10 @@ public class QuickStart9eHotlink extends JFrame {
 		getContentPane().add(myjp, BorderLayout.NORTH);
 		getContentPane().add(myjp2, BorderLayout.SOUTH);
 		addShapefileToMap(layer, s1);
-		// addShapefileToMap(layer2, s2);
+		addShapefileToMap(layer2, s2);
 		// addShapefileToMap(layer5, s5);
 		getContentPane().add(toc, BorderLayout.WEST);
+		
 	}
 
 	private void addShapefileToMap(Layer layer, String s) {
@@ -586,24 +589,6 @@ public class QuickStart9eHotlink extends JFrame {
 		layer.setDataset("0;" + datapath);
 		map.add(layer);
 	}
-
-	public static void main(String[] args) {
-
-      if(Admin_Page.createAndShowUI()) // Login successfull
-      {
-    	  System.out.println("LOGIN !");
-		QuickStart9eHotlink qstart = new QuickStart9eHotlink();
-		qstart.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				System.out.println("Thanks, Quick Start exits");
-				System.exit(0);
-			}
-		});
-		qstart.setVisible(true);
-		env = map.getExtent();
-		}
-	}
-
 	private void enableDisableButtons() {
 		@SuppressWarnings("deprecation")
 		int layerCount = map.getLayerset().getSize();
