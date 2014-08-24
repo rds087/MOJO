@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Pics/" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ESRI"/>
+	<classpathentry kind="lib" path="lib/esri_mo20.jar" sourcepath="lib/esri_mo20.jar"/>
+	<classpathentry kind="lib" path="lib/esri_mo20img.jar"/>
+	<classpathentry kind="lib" path="lib/esri_mo20res.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

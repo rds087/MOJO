@@ -1,0 +1,48 @@
+<http://www.compileonline.com>
+
+
+  - Execute Python Script Online (Python 2.7.4)
+
+Help <#> About </about.php> Web Editors  <#> Home
+<http://www.compileonline.com>
+Command Line Arguments: 	  </command_line_arguments.php> 		STDIN
+Input: 	  </stdin_input.php> 	
+
+Result
+*Download Files* </download.php><javascript:void(0)>
+Multiple Files
+
+  * main.py<javascript:void(0)>
+  * util.py<javascript:void(0)>
+  * support.py<javascript:void(0)>
+  * input.txt<javascript:void(0)>
+
+*Execute Script* <javascript:void(0)>
+
+1
+2
+3
+4
+5
+6
+import re
+file = open("input.txt","r")
+for line in file:
+  m=re.search(r'(.{2,}?)(?:\s+\1)+',line)
+  if m:
+    print m.group()
+X
+
+1
+X
+
+1
+X
+
+1
+2
+doqwedomnbdohjk
+X
+
+Online VI Editor
+Online Emacs Editor
