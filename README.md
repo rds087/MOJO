@@ -1,4 +1,4 @@
 MOJO
 ====
 
-A use google API
+A use Map API
