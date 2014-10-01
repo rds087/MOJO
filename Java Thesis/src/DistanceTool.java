@@ -15,7 +15,7 @@ com.esri.mo2.cs.geom.Point initPoint, endPoint, currPoint;
 double distance;
 public void mousePressed(MouseEvent me) {
 startx = me.getX(); starty = me.getY();
-		initPoint = QuickStart9eHotlink.map.transformPixelToWorld(me.getX(),me.getY());
+initPoint = QuickStart9eHotlink.map.transformPixelToWorld(me.getX(),me.getY());
 }
 public void mouseReleased(MouseEvent me) {
 

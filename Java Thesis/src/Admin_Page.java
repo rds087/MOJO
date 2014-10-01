@@ -3,34 +3,26 @@ import java.awt.GridLayout;
 import javax.swing.*;
 
 public class Admin_Page {
-
-	public static boolean createAndShowUI() 
-	{
+	public static boolean createAndShowUI() {
 		LoginPanel login = new LoginPanel();
 		int response = JOptionPane.showConfirmDialog(null, login,
 				"Please Enter UserName and Password",
 				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-		if (response == JOptionPane.OK_OPTION)
-		{
+		if (response == JOptionPane.OK_OPTION) {
 			String name = login.getName();
 			String pWord = login.getPassword();
 
-			if (name.equals("Saumya") && pWord.equals("Sharma")) 
-			{
+			if (name.equals("Saumya") && pWord.equals("Sharma")) {
 				return true;
-			}
-			else 
-			{
-			  String msg = "Incorrect username and password";
-			  JOptionPane.showMessageDialog(null, msg);
-			  return false;
+			} else {
+				String msg = "Incorrect username and password";
+				JOptionPane.showMessageDialog(null, msg);
+				return false;
 			}
 		}
-		
 		return false;
 	}
-
 }
 
 class LoginPanel extends JPanel {
