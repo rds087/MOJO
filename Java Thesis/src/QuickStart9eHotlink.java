@@ -34,7 +34,16 @@ public class QuickStart9eHotlink extends JFrame {
   static Map map = new Map();
   static boolean fullMap = true; // Map not zoomed
   static boolean helpToolOn;
+  // Default English
   public static String TranslatorURL ="http://www.google.com/translate?hl=&sl=pa&tl=en&u=";
+  // Default Punjabi
+  //public static String TranslatorURL ="http://www.google.com/translate?hl=&sl=en&tl=pa&u=";
+
+  public static String InfohelpUrl = "file:///C:/esri/MOJ20/help/help.html";
+  public static String AllhelpUrl = "file:///C:/esri/MOJ20/help/help.html";
+
+  public static String hyperLinkUrl = "https://www.youtube.com/watch?v=v0ei_S2S2H0";
+  public static String youTubeUrl = "https://www.youtube.com/watch?v=v0ei_S2S2H0";
   Legend legend;
   Legend legend2;
   Layer layer = new Layer();
@@ -78,7 +87,8 @@ public class QuickStart9eHotlink extends JFrame {
       "Pics/help2.gif"));
   JMenuItem contactitem = new JMenuItem("Contact us");
   JMenuItem aboutitem = new JMenuItem("About MOJO...");
-  JMenuItem moreAboutitem = new JMenuItem("More about MOJO...");
+  JMenuItem moreAboutitem = new JMenuItem("Information of Sikhism");
+  JMenuItem allAboutitem = new JMenuItem("All other info");
 
   Toc toc = new Toc();
   String s1 = "C:\\ESRI\\MOJ20\\Samples\\Data\\USA\\States.shp";
@@ -102,7 +112,7 @@ public class QuickStart9eHotlink extends JFrame {
   JButton helpjb = new JButton(new ImageIcon("Pics/help.gif"));
   JButton distjb = new JButton(new ImageIcon("Pics/measure_1.gif"));
   JButton hyperlink_button = new JButton(new ImageIcon("Pics/hyperlink_icon.gif"));
-
+  JButton youtube_button = new JButton(new ImageIcon("Pics/hyperlink_icon.gif"));
 
 
   static HelpTool helpTool = new HelpTool();
@@ -178,7 +188,7 @@ public class QuickStart9eHotlink extends JFrame {
 
   public void PopulateHyperLinkMap()
   {
-    hyperLinkMap.put("Alaska", "http://www.worldgurudwara.com/V4/556.asp");
+    hyperLinkMap.put("Alaska", TranslatorURL + "http://www.worldgurudwara.com/V4/556.asp");
     hyperLinkMap.put("San Jose", TranslatorURL + "http://sikhgurudwarasj.org/");
     hyperLinkMap.put("Florida", TranslatorURL + "http://www.gurdwarananaksarflorida.com/");
     hyperLinkMap.put("Chicago", TranslatorURL + "http://www.srsofchicago.com/");
@@ -300,8 +310,12 @@ public class QuickStart9eHotlink extends JFrame {
           map.setSelectedTool(helpTool);
         }
         else if (source == hyperlink_button) {
-          hyperLink.setCursor(boltCursor);
-          map.setSelectedTool(hyperLink);
+		          //hyperLink.setCursor(boltCursor);
+		          //map.setSelectedTool(hyperLink);
+		          BrowserLauncher.openURL(hyperLinkUrl);
+        }
+        else if (source == youtube_button) {
+          BrowserLauncher.openURL(youTubeUrl);
         }
         else {
           try {
@@ -319,12 +333,12 @@ public class QuickStart9eHotlink extends JFrame {
         Object source = ae.getSource();
         if (source instanceof JMenuItem) {
           String arg = ae.getActionCommand();
-          
-          if(arg == "More about MOJO...")
-          {
-             //String url = "http://www.centerkey.com/java/browser/";
-             String url = "file:///E:/DJ/DJNativeSwing-SWT-1-0-3-20140708/lib/fckeditor/FCKeditor_2.6.3/fckeditor/_whatsnew.html";
-             BrowserLauncher.openURL(url);            
+
+			if(arg == "All other info"){
+				BrowserLauncher.openURL(AllhelpUrl);
+         	}
+			else if(arg == "Information of Sikhism"){
+             BrowserLauncher.openURL(InfohelpUrl);
           }
 
           else if (arg == "About MOJO...") {
@@ -523,7 +537,8 @@ public class QuickStart9eHotlink extends JFrame {
     contactitem.addActionListener(helplis);
     aboutitem.addActionListener(helplis);
     moreAboutitem.addActionListener(helplis);
-    
+    allAboutitem.addActionListener(helplis);
+
     file.add(addlyritem);
     file.add(printitem);
     file.add(remlyritem);
@@ -541,6 +556,7 @@ public class QuickStart9eHotlink extends JFrame {
     help.add(contactitem);
     help.add(aboutitem);
     help.add(moreAboutitem);
+    help.add(allAboutitem);
 
     mbar.add(file);
     mbar.add(theme);
@@ -557,7 +573,9 @@ public class QuickStart9eHotlink extends JFrame {
     hotjb.addActionListener(lis);
     hotjb.setToolTipText("hotlink tool--click somthing to maybe see a picture");
     hyperlink_button.addActionListener(lis);
+    youtube_button.addActionListener(lis);
     hyperlink_button.setToolTipText("Learn More from internet");
+    youtube_button.setToolTipText("Watch a video on Youtube");
     ptrjb.addActionListener(lis);
     prtjb.setToolTipText("printer");
     jtb.add(prtjb);
@@ -567,6 +585,7 @@ public class QuickStart9eHotlink extends JFrame {
     jtb.add(helpjb);
     jtb.add(distjb);
     jtb.add(hyperlink_button);
+    jtb.add(youtube_button);
     helpjb.addActionListener(lis);
     XYjb.addActionListener(lis);
     XYjb.setToolTipText("add a layer of points from a file");
